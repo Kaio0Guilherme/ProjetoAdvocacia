@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consulta</title>
+    <link rel="stylesheet" href="styleagenda.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Agendamento de Consulta</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h2>Agendar Consulta com <span id="advogado-name"></span></h2>
+
+            <form id="agendamento-form">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="dataHora">Data e Hora:</label>
+                    <select id="dataHora" name="dataHora" required>
+                        <!-- Horários disponíveis já definidos no código -->
+                        <option value="2024-12-10T10:00">10/12/2024 às 10:00</option>
+                        <option value="2024-12-10T14:00">10/12/2024 às 14:00</option>
+                        <option value="2024-12-11T09:00">11/12/2024 às 09:00</option>
+                        <option value="2024-12-11T16:00">11/12/2024 às 16:00</option>
+                    </select>
+                </div>
+                <button type="submit" class="agendar-btn">Enviar Agendamento</button>
+
+                <button onclick="window.location.href='index.html'" class="btn">Voltar para o Início</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escritório de Advocacia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para obter o nome do advogado da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const advogadoName = urlParams.get('advogado');
+        document.getElementById('advogado-name').innerText = advogadoName || 'Advogado Não Informado';
+
+        // Lidar com o envio do formulário
+        document.getElementById('agendamento-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const dataHora = document.getElementById('dataHora').value;
+
+            try {
+                // Fazer requisição ao servidor para enviar o email com Nodemailer
+                const response = await fetch('/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nome,
+                        telefone,
+                        advogado: advogadoName,
+                        dataHora,
+                    }),
+                });
+
+                if (response.ok) {
+                    alert(`Agendamento enviado com sucesso!`);
+                    this.reset();
+                } else {
+                    alert(`Erro ao enviar o agendamento. Tente novamente.`);
+                }
+            } catch (error) {
+                alert(`Erro: ${error.message}`);
+            }
+        });
+    </script>
+</body>
+</html>

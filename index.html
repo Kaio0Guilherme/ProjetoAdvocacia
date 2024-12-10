@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Escritório de Advocacia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Escritório de Advocacia</h1>
+            <button id="menu-toggle" class="hamburger" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i> <!-- Ícone do Menu Hamburger -->
+            </button>
+            <nav>
+                <ul id="menu" class="hidden">
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#advogados">Advogados</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-- Primeiro Parallax -->
+    <section id="hero" class="parallax" data-bg="pietro-dona-rPFwyWaie7w-unsplash.jpg">
+        <div class="overlay">
+            <h2>Defendendo seus direitos com excelência</h2>
+            <p>Profissionais dedicados e experientes à sua disposição.</p>
+            <a href="#contato" class="btn">Entre em contato</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="sobre" class="container">
+            <h2>Sobre Nós</h2>
+            <p>Nosso escritório é especializado em diversas áreas do direito, oferecendo um atendimento personalizado e comprometido com os melhores resultados.</p>
+        </section>
+
+        <!-- Segundo Parallax -->
+        <section class="parallax" data-bg="istockphoto-1927881398-612x612.webp">
+            <div class="overlay">
+                <h2>Especialistas nas principais áreas do Direito</h2>
+                <p>Atuação focada em soluções práticas e eficientes.</p>
+            </div>
+        </section>
+
+        <section id="advogados" class="container">
+            <h2>Conheça Nossos Advogados</h2>
+            <div class="advogado">
+                <div class="foto">
+                    <img src="man-g621388a8e_640.jpg" alt="Advogado 1">
+                </div>
+                <div class="info">
+                    <h3>Dr. João Silva</h3>
+                    <p>Especialista em Direito Civil e Contratos.</p>
+                    <button class="agendar-btn" onclick="window.location.href='agenda.html?advogado=João+Silva'">Agendar Consulta</button>
+                </div>
+            </div>
+            <div class="advogado">
+                <div class="foto">
+                    <img src="asian-gb9f6065e3_640.jpg" alt="Advogado 2">
+                </div>
+                <div class="info">
+                    <h3>Dra. Maria Oliveira</h3>
+                    <p>Especialista em Direito Penal e Trabalhista.</p>
+                    <button class="agendar-btn" onclick="window.location.href='agenda.html?advogado=Maria+Oliveira'">Agendar Consulta</button>
+                </div>
+            </div>
+            <div class="advogado">
+                <div class="foto">
+                    <img src="man-g845bf6fbb_640.jpg" alt="Advogado 3">
+                </div>
+                <div class="info">
+                    <h3>Dr. Carlos Souza</h3>
+                    <p>Especialista em Direito Empresarial.</p>
+                    <button class="agendar-btn" onclick="window.location.href='agenda.html?advogado=Carlos+Souza'">Agendar Consulta</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terceiro Parallax -->
+        <section class="parallax" data-bg="mar-g456a8bec7_640.jpg">
+            <div class="overlay">
+                <h2>Tradição e modernidade em um só lugar</h2>
+                <p>Compromisso com a justiça e inovação constante.</p>
+            </div>
+        </section>
+
+        <section id="contato" class="container">
+            <h2>Contato</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escritório de Advocacia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

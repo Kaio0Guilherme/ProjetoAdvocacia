@@ -1,0 +1,308 @@
+/* Estilo Básico */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000; /* Texto preto */
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1e3a8a;
+    color: #fff;
+    padding: 1rem 0;
+    position: static;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Parallax */
+.parallax {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000;
+}
+
+.parallax .overlay {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
+    padding: 2rem;
+    border-radius: 10px;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Animação de Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section */
+#hero .btn {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#hero .btn:hover {
+    background-color: #1e3a8a;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Conteúdo Geral */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #000;
+}
+
+/* Contato */
+#contato form {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contato .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#contato label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#contato input, #contato textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contato input:focus, #contato textarea:focus {
+    outline: none;
+    border-color: #1e3a8a;
+}
+
+#contato .btn {
+    background-color: #1e3a8a;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contato .btn:hover {
+    background-color: #4f46e5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #1e3a8a;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* Seção Advogados */
+#advogados .advogado {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#advogados .advogado .foto {
+    flex: 1;
+    text-align: center;
+}
+
+#advogados .advogado .foto img {
+    max-width: 150px;
+    border-radius: 50%;
+    border: 1px solid #1e3a8a;
+}
+
+#advogados .advogado .info {
+    flex: 2;
+}
+
+#advogados .advogado .info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1e3a8a;
+}
+
+#advogados .advogado .info p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Parallax Data-BG */
+.parallax[data-bg] {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#hero {
+    background-image: url('hero.jpg');
+}
+
+.parallax:nth-of-type(2) {
+    background-image: url('advogado-bg.jpg');
+    background-position: top;
+}
+
+.parallax:nth-of-type(3) {
+    background-image: url('law-books.jpg');
+    background-position: bottom;
+    background-size: contain;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .parallax {
+        height: 300px;
+        background-attachment: scroll;
+        background-size: cover;
+    }
+
+    #advogados .advogado {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #advogados .advogado .foto img {
+        max-width: 120px;
+    }
+}
+
+/* Estilo do botão hamburger */
+.hamburger {
+    display: none; /* Esconde o botão por padrão em telas grandes */
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Estilo do menu de navegação */
+header nav ul {
+    display: flex; /* Exibe o menu como linha em telas grandes */
+    gap: 1rem;
+}
+
+/* Estilo do menu quando estiver oculto (telas pequenas) */
+@media (max-width: 768px) {
+    header nav ul {
+        display: none; /* Esconde o menu de navegação em telas pequenas */
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    header nav ul.active {
+        display: flex; /* Exibe o menu quando o botão hamburger é clicado */
+    }
+
+    .hamburger {
+        display: block; /* Exibe o botão hamburger em telas pequenas */
+    }
+}
+
+/* Quando o menu de navegação estiver ativo */
+header nav ul.active {
+    display: flex;
+}
+
+
+
+/* Estilos para o botão Agendar Consulta */
+.agendar-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.agendar-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Efeito de aumento */
+}
+
+.agendar-btn:focus {
+    outline: none;
+}
